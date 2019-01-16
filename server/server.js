@@ -25,10 +25,11 @@ io.on("connection", socket => {
     generateMessage("Admin", "New user joined.")
   );
 
-  socket.on("createMessage", message => {
+  socket.on("createMessage", (message, callback) => {
     console.log("Create message", message);
     // salje/prikazuje svim konekcijama
     io.emit("newMessage", generateMessage(message.from, message.text));
+    callback("This is from the server.");
 
     // salje/prikazuje svima osim onome tko je poslao
     // socket.broadcast.emit("newMessage", {
