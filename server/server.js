@@ -32,7 +32,7 @@ io.on("connection", socket => {
 
     socket.emit(
       "newMessage",
-      generateMessage("Admin", "Welcome to the chat app.")
+      generateMessage("Admin", `Welcome to the ${params.room} chat room.`)
     );
 
     socket.broadcast

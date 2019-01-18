@@ -22,6 +22,8 @@ function scrollToBottom() {
 
 socket.on("connect", function() {
   var params = $.deparam(window.location.search);
+  var showRoomName = $(".chat__room");
+  showRoomName.text(params.room);
 
   socket.emit("join", params, function(err) {
     if (err) {
