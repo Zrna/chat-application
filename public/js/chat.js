@@ -38,13 +38,13 @@ socket.on("disconnect", function() {
 });
 
 socket.on("updateUserList", function(users) {
-  var ol = $("<ol></ol>");
+  var ul = $("<ul></ul>");
 
   users.forEach(function(user) {
-    ol.append($("<li></li>").text(user));
+    ul.append($("<li></li>").text(user));
   });
 
-  $("#users").html(ol);
+  $("#users").html(ul);
 });
 
 socket.on("newMessage", function(message) {
@@ -80,7 +80,6 @@ $("#message-form").on("submit", function(e) {
   socket.emit(
     "createMessage",
     {
-      from: "User",
       text: messageTextBox.val()
     },
     function() {
