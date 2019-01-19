@@ -33,7 +33,6 @@ h3 {
   font-size: 1.5rem;
 }
 button {
-  /* background: #265f82; */
   background: #0173e4;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -41,7 +40,7 @@ button {
   outline: 0;
 }
 button:hover {
-  background: #1f4c69;
+  background: #0360bd;
   border-radius: 15px;
 }
 button:disabled {
@@ -116,7 +115,7 @@ button:disabled {
   display: flex;
 }
 .chat__sidebar {
-  overflow-y: scroll;
+  overflow-y: hidden;
   width: 260px;
   height: 100vh;
   background: -moz-linear-gradient(
@@ -192,6 +191,7 @@ p.chat__room {
   flex-grow: 1;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  /* padding-top: 30px !important; */
   padding: 10px;
 }
 .user__name {
@@ -216,6 +216,12 @@ p.chat__room {
   flex-grow: 1;
   border: 1px solid #ccc;
 }
+
+.chat__footer input:focus,
+.chat__footer input:active {
+  box-shadow: 0px 0px 5px 0px #0173e4;
+}
+
 .message {
   padding: 10px;
 }
@@ -230,6 +236,9 @@ p.chat__room {
 .message__title span {
   color: #999;
 }
+#hamburger {
+  display: none;
+}
 @media (max-width: 600px) {
   * {
     font-size: 1rem;
@@ -237,8 +246,27 @@ p.chat__room {
   .chat__sidebar {
     display: none;
   }
+  .chat__sidebarShow {
+    display: block;
+    min-width: 70%;
+  }
+
+  #hamburger {
+    display: block;
+    /* position: fixed; */
+    padding: 8px 0px 5px 20px;
+    background: #2e5981;
+    width: 100%;
+  }
+
+  i.fas.fa-bars {
+    font-size: 1.5rem;
+    color: #f5f5f5;
+  }
+
   .chat__footer {
     flex-direction: column;
+    margin: 0px 5px;
   }
   .chat__footer form {
     margin-bottom: 10px;

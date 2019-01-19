@@ -24,6 +24,8 @@ socket.on("connect", function() {
   var params = $.deparam(window.location.search);
   var showRoomName = $(".chat__room");
   showRoomName.text(params.room.toLowerCase());
+  var tabTitle = $("title");
+  tabTitle.text(params.room.toLowerCase() + " | Chat app");
 
   socket.emit("join", params, function(err) {
     if (err) {
@@ -101,15 +103,25 @@ loactionButton.on("click", function() {
 
   navigator.geolocation.getCurrentPosition(
     function(position) {
-      loactionButton.removeAttr("disabled").text("Send location");
+      loactionButton
+        .removeAttr("disabled")
+        .html('<i class="fas fa-map-marker-alt"></i>');
       socket.emit("createLocationMessage", {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       });
     },
     function() {
-      loactionButton.removeAttr("disabled").text("Send location");
+      loactionButton
+        .removeAttr("disabled")
+        .text('<i class="fas fa-map-marker-alt"></i>');
       alert("Unable to fetch location.");
     }
   );
+});
+
+var hamburger = $("#hamburger");
+var mobMenu = $(".chat__sidebar");
+hamburger.on("click", function() {
+  $(mobMenu).toggleClass("chat__sidebarShow");
 });
