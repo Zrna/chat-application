@@ -20,15 +20,21 @@ io.on("connection", socket => {
   console.log("New user connected");
 
   socket.on("join", (params, callback) => {
-    if (!isRealString(params.name) || !isRealString(params.room)) {
+    if (
+      !isRealString(params.name) ||
+      !isRealString(params.room.toLowerCase())
+    ) {
       return callback("Name and room name are required.");
     }
 
-    socket.join(params.room);
+    socket.join(params.room.toLowerCase());
     users.removeUser(socket.id);
-    users.addUser(socket.id, params.name, params.room);
+    users.addUser(socket.id, params.name, params.room.toLowerCase());
 
-    io.to(params.room).emit("updateUserList", users.getUserList(params.room));
+    io.to(params.room.toLowerCase()).emit(
+      "updateUserList",
+      users.getUserList(params.room.toLowerCase())
+    );
 
     socket.emit(
       "newMessage",

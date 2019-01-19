@@ -5,6 +5,11 @@ button:hover {
   padding: 10px;
   border-radius: 15px;
 }
+
+input {
+  outline: 0;
+}
+
 .chat__messages,
 .chat__sidebar ul {
   list-style-type: none;
@@ -33,6 +38,7 @@ button {
   cursor: pointer;
   transition: background 0.3s ease;
   border-radius: 15px;
+  outline: 0;
 }
 button:hover {
   background: #1f4c69;
@@ -43,6 +49,7 @@ button:disabled {
   background: #698ea5;
   border-radius: 15px;
 }
+
 .centered-form {
   display: flex;
   align-items: center;
@@ -156,6 +163,8 @@ button:disabled {
   content: "•";
   color: #00c500;
   margin-right: 10px;
+  font-size: 35px;
+  vertical-align: middle;
 }
 
 .chat__sidebar li {
@@ -236,5 +245,8 @@ p.chat__room {
   }
   .chat__footer button {
     margin-right: 0;
+  }
+  button#send-location {
+    display: none;
   }
 }

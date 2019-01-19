@@ -17,7 +17,13 @@
         <div class="form-field"><h3>Join Chat</h3></div>
         <div class="form-field">
           <label>Display name</label>
-          <input type="text" name="name" autofocus />
+          <input
+            type="text"
+            name="name"
+            minlength="2"
+            maxlength="12"
+            autofocus
+          />
         </div>
         <div class="form-field">
           <label>Room name</label> <input type="text" name="room" />
