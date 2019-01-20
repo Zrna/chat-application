@@ -123,5 +123,6 @@ loactionButton.on("click", function() {
 var hamburger = $("#hamburger");
 var mobMenu = $(".chat__sidebar");
 hamburger.on("click", function() {
-  $(mobMenu).toggleClass("chat__sidebarShow");
+  $(mobMenu).toggleClass("open");
+  $(hamburger).toggleClass("open");
 });
