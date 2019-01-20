@@ -244,19 +244,37 @@ p.chat__room {
     font-size: 1rem;
   }
   .chat__sidebar {
-    display: none;
+    /*display: none;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    transition: .75s ease-in-out;
   }
-  .chat__sidebarShow {
+
+  .chat__sidebar.open {
     display: block;
-    min-width: 70%;
+    top: 0;
+    left: 0;
+    width: 70%;
+    transition: .75s ease-in-out;
   }
 
   #hamburger {
     display: block;
-    /* position: fixed; */
-    padding: 8px 0px 5px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 8px 0 5px 20px;
     background: #2e5981;
     width: 100%;
+    transition: .75s ease-in-out;
+  }
+
+  #hamburger.open {
+    left: 70%;
+    transition: .75s ease-in-out;
   }
 
   i.fas.fa-bars {
