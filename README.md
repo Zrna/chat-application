@@ -8,7 +8,7 @@ Someone else can join you very easy, they just need to type Name to display and 
 
 **Try app on [Heroku](https://lzrnic-chat.herokuapp.com/).**
 
-Chat application created with HTML, CSS and Node.js
+Chat application created with HTML, CSS and Node.js.
 
 ## File List
 
@@ -31,5 +31,7 @@ README.md
 2. Go into the project `cd node-chat-app`
 3. Run `npm install`
 4. Run `npm start`
+
+**Optional**: Run `npm test` to run application tests.
 
 Application will open on localhost:3000
