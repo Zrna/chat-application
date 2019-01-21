@@ -42,7 +42,7 @@ io.on("connection", socket => {
     );
 
     socket.broadcast
-      .to(params.room)
+      .to(params.room.toLowerCase())
       .emit(
         "newMessage",
         generateMessage("Admin", `${params.name} has joined.`)
