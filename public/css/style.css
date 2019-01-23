@@ -66,7 +66,6 @@ button:disabled {
   left: 0;
   z-index: -1;
 }
-
 .centered-form {
   display: flex;
   align-items: center;
@@ -102,29 +101,27 @@ button:disabled {
 }
 .chat {
   display: flex;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  padding-left: 90px;
+  padding-right: 90px;
   background: #dfdfdf;
 }
 .chat__sidebar {
   overflow-y: hidden;
   padding: 10px;
-  width: 260px;
-  height: 100vh;
+  width: 350px;
+  height: 90vh;
   background: #f5f5f5;
   border-radius: 10px 0px 0px 10px;
   box-shadow: 0px 0px 10px 5px #00c8a9;
 }
-
 .chat__sidebar h3 {
   /* color: #e6eaee; */
   margin: 10px 20px;
   text-align: left;
   border-radius: 10px 0px 0px 10px;
 }
-
 .chat__sidebar li::before {
   content: "•";
   color: #00c500;
@@ -132,30 +129,26 @@ button:disabled {
   font-size: 25px;
   vertical-align: middle;
 }
-
 .chat__sidebar li {
   margin: 10px;
   padding: 10px 10px 0px;
   font-size: 20px;
 }
-
 .chat__main {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   width: 100%;
   background: url("/img/chat-main-bg.png");
   background-size: contain;
   border-radius: 0px 10px 10px 0px;
   box-shadow: 5px 5px 10px 0px #00c8a9;
 }
-
 p.chat__room {
   margin: 10px;
   padding: 10px 10px 20px;
   font-size: 18px;
 }
-
 .chat__messages {
   flex-grow: 1;
   overflow-y: scroll;
@@ -165,7 +158,6 @@ p.chat__room {
 .user__name {
   color: #fff;
 }
-
 .chat__footer {
   display: flex;
   background: #f5f5f5;
@@ -185,22 +177,20 @@ p.chat__room {
   flex-grow: 1;
   border: none;
 }
-
-.chat__footer input:focus,
+/* .chat__footer input:focus,
 .chat__footer input:active {
   box-shadow: 0px 0px 5px 0px #0173e4;
-}
-
+} */
 .fa-map-marker-alt {
   color: #fff;
 }
-
 .message {
   margin-top: 5px;
   padding: 10px;
   border-radius: 10px;
   background: #fff;
-  display: table; /* with this prop message box is width as message content is */
+  display: table;
+  /* with this prop message box is width as message content is */
 }
 .message__title {
   display: flex;
@@ -227,13 +217,11 @@ p.chat__room {
   * {
     font-size: 1rem;
   }
-
   .chat {
     padding: 0px !important;
   }
-
   .chat__sidebar {
-    /*display: none;*/
+    height: 100vh;
     position: fixed;
     padding: 0px;
     top: 0;
@@ -244,7 +232,6 @@ p.chat__room {
     border-radius: 0px;
     box-shadow: none;
   }
-
   .chat__sidebar.open {
     display: block;
     top: 0;
@@ -254,15 +241,13 @@ p.chat__room {
     border-radius: 0px;
     box-shadow: none;
   }
-
   .chat__main {
+    height: 100vh;
     border-radius: 0px;
   }
-
   .chat__messages {
     padding: 30px 10px;
   }
-
   #hamburger {
     display: block;
     position: fixed;
@@ -273,22 +258,18 @@ p.chat__room {
     width: 100%;
     transition: 0.75s ease-in-out;
   }
-
   #hamburger.open {
     left: 70%;
     transition: 0.75s ease-in-out;
   }
-
   i.fas.fa-bars {
     font-size: 1.5rem;
     color: #f5f5f5;
   }
-
   .chat__footer {
     flex-direction: column;
     padding: 10px 10px;
   }
-
   .chat__footer button {
     margin-right: 0;
   }
