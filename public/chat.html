@@ -27,7 +27,9 @@
     </div>
 
     <div class="chat__main">
-      <span id="hamburger"><i class="fas fa-bars"></i></span>
+      <span id="hamburger"
+        ><i class="fas fa-bars"></i> <span class="chat__room"></span>
+      </span>
       <ol id="messages" class="chat__messages"></ol>
 
       <div class="chat__footer">
@@ -39,7 +41,7 @@
             autofocus
             autocomplete="off"
           />
-          <button>Send</button>
+          <button id="btn-send"><i class="fas fa-paper-plane"></i></button>
         </form>
 
         <button id="send-location">
@@ -48,6 +50,7 @@
       </div>
     </div>
 
+    <!-- User message template -->
     <script id="message-template" type="text/template">
       <li class='message'>
         <div class='message__title'>
@@ -60,6 +63,16 @@
       </li>
     </script>
 
+    <!-- Admin message template -->
+    <script id="admin-template" type="text/template">
+      <li class='server__message'>
+        <div class='message__body'>
+          <span class='server__message__content'>{{text}}</span>
+        </div>
+      </li>
+    </script>
+
+    <!-- Location template -->
     <script id="location-message-template" type="text/template">
       <li class='message'>
         <div class='message__title'>

@@ -53,14 +53,25 @@ socket.on("updateUserList", function(users) {
 
 socket.on("newMessage", function(message) {
   var formattedTime = moment(message.createdAt).format("H:mm");
-  var template = $("#message-template").html();
-  var html = Mustache.render(template, {
-    text: message.text,
-    from: message.from,
-    createdAt: formattedTime
-  });
 
-  $("#messages").append(html);
+  if (message.from === "Admin") {
+    var adminTemplate = $("#admin-template").html();
+    var html = Mustache.render(adminTemplate, {
+      text: message.text
+    });
+
+    $("#messages").append(html);
+  } else {
+    var template = $("#message-template").html();
+    var html = Mustache.render(template, {
+      text: message.text,
+      from: message.from,
+      createdAt: formattedTime
+    });
+
+    $("#messages").append(html);
+  }
+
   scrollToBottom();
 });
 
