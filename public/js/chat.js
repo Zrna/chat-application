@@ -52,24 +52,34 @@ socket.on("updateUserList", function(users) {
 });
 
 socket.on("newMessage", function(message) {
+  var params = $.deparam(window.location.search);
   var formattedTime = moment(message.createdAt).format("H:mm");
+  var template, html;
 
   if (message.from === "Admin") {
-    var adminTemplate = $("#admin-template").html();
-    var html = Mustache.render(adminTemplate, {
+    // Admin messages
+    template = $("#admin-template").html();
+    html = Mustache.render(template, {
       text: message.text
     });
 
     $("#messages").append(html);
   } else {
-    var template = $("#message-template").html();
-    var html = Mustache.render(template, {
+    // User messages
+    template = $("#message-template").html();
+    html = Mustache.render(template, {
       text: message.text,
       from: message.from,
       createdAt: formattedTime
     });
 
-    $("#messages").append(html);
+    // Check which user is sending message and sets class
+    if (message.from === params.name) {
+      $("#messages").append(html);
+      $(".message").addClass("message__colored ");
+    } else {
+      $("#messages").append(html);
+    }
   }
 
   scrollToBottom();
