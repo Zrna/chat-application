@@ -53,45 +53,61 @@ socket.on("updateUserList", function(users) {
 
 socket.on("newMessage", function(message) {
   var params = $.deparam(window.location.search);
-  var formattedTime = moment(message.createdAt).format("H:mm");
+  var from = message.from;
+  var message = message.text;
+  var formattedTime = moment(message.sentAt).format("H:mm");
   var template, html;
 
-  if (message.from === "Admin") {
+  if (from === "Admin") {
     // Admin messages
     template = $("#admin-template").html();
     html = Mustache.render(template, {
-      text: message.text
+      text: message
     });
 
     $("#messages").append(html);
+  } else if (message.includes("http://") || message.includes("https://")) {
+    // User link message
+    template = $("#link-template").html();
+    html = Mustache.render(template, {
+      url: message,
+      from: from,
+      sentAt: formattedTime
+    });
+
+    setMessageColor(from, params.name, html);
   } else {
     // User messages
     template = $("#message-template").html();
     html = Mustache.render(template, {
-      text: message.text,
-      from: message.from,
-      createdAt: formattedTime
+      text: message,
+      from: from,
+      sentAt: formattedTime
     });
 
-    // Check which user is sending message and sets class
-    if (message.from === params.name) {
-      $("#messages").append(html);
-      $(".message").addClass("message__colored ");
-    } else {
-      $("#messages").append(html);
-    }
+    setMessageColor(from, params.name, html);
   }
 
   scrollToBottom();
 });
 
+// Check which user is sending message and sets class
+function setMessageColor(from, paramsName, html) {
+  if (from === paramsName) {
+    $("#messages").append(html);
+    $(".message").addClass("message__colored ");
+  } else {
+    $("#messages").append(html);
+  }
+}
+
 socket.on("newLocationMessage", function(message) {
-  var formattedTime = moment(message.createdAt).format("H:mm");
+  var formattedTime = moment(message.sentAt).format("H:mm");
   var template = $("#location-message-template").html();
   var html = Mustache.render(template, {
     url: message.url,
     from: message.from,
-    createdAt: formattedTime
+    sentAt: formattedTime
   });
 
   $("#messages").append(html);

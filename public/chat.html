@@ -58,7 +58,20 @@
         </div>
         <div class='message__body'>
           <span>{{text}}</span>
-          <span class="message__time">{{createdAt}}</span>
+          <span class="message__time">{{sentAt}}</span>
+        </div>
+      </li>
+    </script>
+
+    <!-- User link message template -->
+    <script id="link-template" type="text/template">
+      <li class='message'>
+        <div class='message__title'>
+          <h4>{{from}}</h4>
+        </div>
+        <div class='message__body'>
+          <a href='{{url}}' target='_blank' class="message__link">{{url}}</a>
+          <span class="message__time">{{sentAt}}</span>
         </div>
       </li>
     </script>
@@ -77,7 +90,7 @@
       <li class='message'>
         <div class='message__title'>
           <h4>{{from}}</h4>
-          <span>{{createdAt}}</span>
+          <span>{{sentAt}}</span>
         </div>
         <div class='message__body'>
           <p>
