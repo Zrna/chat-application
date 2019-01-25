@@ -95,7 +95,9 @@ socket.on("newMessage", function(message) {
 function setMessageColor(from, paramsName, html) {
   if (from === paramsName) {
     $("#messages").append(html);
-    $(".message").addClass("message__colored ");
+    $("#messages")
+      .find("[value='" + from + "']")
+      .addClass("message__colored ");
   } else {
     $("#messages").append(html);
   }
