@@ -94,9 +94,11 @@ socket.on("newMessage", function(message) {
 // Check which user is sending message and sets class
 function setMessageColor(from, paramsName, html) {
   if (from === paramsName) {
+    var searchUserName = "[value='" + from + "']";
+
     $("#messages").append(html);
     $("#messages")
-      .find("[value='" + from + "']")
+      .find(searchUserName)
       .addClass("message__colored ");
   } else {
     $("#messages").append(html);
