@@ -8,7 +8,7 @@ Someone else can join you very easy, they just need to type Name to display and 
 
 **Try app on [Heroku](https://lzrnic-chat.herokuapp.com/).**
 
-Chat application created with HTML, CSS and Node.js.
+Chat application created with HTML, CSS, JavaScript and Node.js.
 
 ## File List
 
