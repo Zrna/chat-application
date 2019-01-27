@@ -35,3 +35,7 @@ README.md
 **Optional**: Run `npm test` to run application tests.
 
 Application will open on localhost:3000
+
+## Screenshot
+
+![chat-application](https://user-images.githubusercontent.com/22341530/51800485-8dd71080-222f-11e9-9526-cfd2fe2929f1.png)
